@@ -1,0 +1,97 @@
+package com.eKirana.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "seller")
+public class Seller 
+{
+	@Id
+	@Column(name = "seller_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	Integer sellerId;
+	
+	@Column(name = "first_name")
+	String firstName;
+	
+	@Column(name = "last_name")
+	String lastName;
+	
+	@Column(name = "password")
+	String password;
+	
+	@Column(name = "email")
+	String email;
+	
+	@Column(name = "phone_number")
+	Long phoneNumber;
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
+	Address address;
+	
+	
+
+	public Seller() 
+	{
+		System.out.println("seller.....");
+	}
+
+	public Integer getSellerId() {
+		return sellerId;
+	}
+
+	public void setSellerId(Integer sellerId) {
+		this.sellerId = sellerId;
+	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public Long getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(Long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+	
+	
+}

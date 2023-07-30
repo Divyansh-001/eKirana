@@ -1,4 +1,4 @@
-# Grocery Delivery E-Commerce Website
+# Grocery Delivery E-Commerce Website (Under Development)
 ![image](https://github.com/Divyansh-001/eKirana/assets/82533210/70db53dc-7d8a-4dec-81f2-4037227ec6fa)
 
 

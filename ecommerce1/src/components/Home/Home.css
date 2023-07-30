@@ -1,0 +1,16 @@
+.home-container {
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  
+}
+
+.home-container::-webkit-scrollbar {
+  width: 4px; 
+}
+
+.home-container::-webkit-scrollbar-thumb {
+  background-color: transparent; 
+}

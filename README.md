@@ -12,7 +12,6 @@ This project is an E-Commerce website for grocery delivery. It provides a user-f
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
 - [Contact](#contact)
 
 ## Installation

@@ -1,6 +1,6 @@
 .cardContainer {
-    width: calc(23% - 108px);
-    height: 40%;
+    /* width: calc(23% - 108px);
+    height: 40%; */
     margin: 14px;
     padding: 12px;
     background: rgba(255, 255, 255, 0.2);

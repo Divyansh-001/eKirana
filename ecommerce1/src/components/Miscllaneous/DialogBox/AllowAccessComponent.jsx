@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './AcessComponent.css';
-import useStyles from '../Buttons/Buttons';
+import useStyles from '../../Buttons/Buttons';
 import Button from '@material-ui/core/Button';
 const AccessComponent = () => {
     const [isOpen, setIsOpen] = useState(true);

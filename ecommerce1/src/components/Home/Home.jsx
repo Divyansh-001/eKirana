@@ -1,19 +1,21 @@
-// Home.js
 import React from 'react';
 import './Home.css';
-import Card from './Card/Card';
-import {listOfItems} from './DummyListOfItems';
-import AccessComponent from '../Home/AllowAccessComponent';
+import AccessComponent from '../Miscllaneous/DialogBox/AllowAccessComponent';
+import ScrollComponent from '../ScrollComponent/ScrollComponent';
+import { Typography } from '@material-ui/core';
 const Home = () => {
     return (
-        <>
-        <div className="home-container">
-            {listOfItems.map((item) => (
-                <Card item={item} />
-            ))}
+        <div className='home'>
+                <Typography variant='h4'>Electricity</Typography>
+                <ScrollComponent />
+                <Typography variant='h4'>Veggies</Typography>
+                <ScrollComponent />
+                <Typography variant='h4'>Groceries</Typography>
+                <ScrollComponent />
+                <Typography variant='h4'>Medicines</Typography>
+                <ScrollComponent />
+            <AccessComponent />
         </div>
-        <AccessComponent/>
-        </>
     );
 };
 

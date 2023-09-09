@@ -1,16 +1,12 @@
-.home-container {
-  height: 100vh;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  overflow-y: scroll;
+.home{
+    max-height: 88vh;
+    overflow-y: scroll;
+}
+
+.home::-webkit-scrollbar {
+    width: 4px; 
+  }
   
-}
-
-.home-container::-webkit-scrollbar {
-  width: 4px; 
-}
-
-.home-container::-webkit-scrollbar-thumb {
-  background-color: transparent; 
-}
+.home::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+  }

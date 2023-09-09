@@ -1,0 +1,11 @@
+.scroll{
+   display: flex;
+}
+
+.scroll::-webkit-scrollbar {
+    width: 2px; 
+  }
+  
+.scroll::-webkit-scrollbar-thumb {
+    background-color: transparent; 
+  }

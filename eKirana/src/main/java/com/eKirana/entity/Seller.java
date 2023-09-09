@@ -1,5 +1,7 @@
 package com.eKirana.entity;
 
+import java.util.Set;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -30,6 +32,8 @@ public class Seller
 	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
 	Address address;
 	
+	@OneToMany(cascade = CascadeType.ALL)
+	Set<Stores> stores;
 	
 
 	public Seller() 
@@ -92,6 +96,15 @@ public class Seller
 	public void setAddress(Address address) {
 		this.address = address;
 	}
+
+	public Set<Stores> getStores() {
+		return stores;
+	}
+
+	public void setStores(Set<Stores> stores) {
+		this.stores = stores;
+	}
+	
 	
 	
 }

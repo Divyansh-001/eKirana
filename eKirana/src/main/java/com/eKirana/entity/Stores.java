@@ -1,7 +1,18 @@
 package com.eKirana.entity;
 
-import jakarta.persistence.*;
-import java.util.*;
+import java.util.Set;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "stores")
@@ -23,26 +34,18 @@ public class Stores
 	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
 	Address address;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name = "pk_seller_id", referencedColumnName = "seller_id")
 	private Seller sellers;
 	
+	@OneToMany(mappedBy = "stores", cascade = CascadeType.ALL)
+	Set<StoreItems> storeItem;
 	
-
 	public Stores() 
 	{
 		System.out.println("Creating Strore Object");
 	}
 
-
-
-	public Stores(String storeType, String storeName, Address address, Seller sellers) 
-	{
-		this.storeType = storeType;
-		this.storeName = storeName;
-		this.address = address;
-		this.sellers = sellers;
-	}
 
 
 	public Integer getStoreId() {
@@ -101,6 +104,19 @@ public class Stores
 
 	public void setSellers(Seller sellers) {
 		this.sellers = sellers;
+	}
+
+	
+
+
+	public Set<StoreItems> getStoreItem() {
+		return storeItem;
+	}
+
+
+
+	public void setStoreItem(Set<StoreItems> storeItem) {
+		this.storeItem = storeItem;
 	}
 
 

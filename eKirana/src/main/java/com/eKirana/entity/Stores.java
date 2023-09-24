@@ -2,9 +2,14 @@ package com.eKirana.entity;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -32,11 +37,13 @@ public class Stores
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
+	@JsonIgnore
 	Address address;
 	
-	@ManyToOne
-	@JoinColumn(name = "pk_seller_id", referencedColumnName = "seller_id")
-	private Seller sellers;
+	@ManyToOne()
+	@JoinColumn(name = "fk_seller_id")
+	@JsonIgnore
+	Seller seller;
 	
 	@OneToMany(mappedBy = "stores", cascade = CascadeType.ALL)
 	Set<StoreItems> storeItem;
@@ -97,13 +104,13 @@ public class Stores
 
 
 	public Seller getSellers() {
-		return sellers;
+		return seller;
 	}
 
 
 
 	public void setSellers(Seller sellers) {
-		this.sellers = sellers;
+		this.seller = sellers;
 	}
 
 	
@@ -123,9 +130,13 @@ public class Stores
 
 	@Override
 	public String toString() {
-		return "Strores [storeId=" + storeId + ", storeType=" + storeType + ", storeName=" + storeName + ", address="
-				+ address + ", sellers=" + sellers + "]";
+		return "Stores [storeId=" + storeId + ", storeType=" + storeType + ", storeName=" + storeName + ", address="
+				+ address + ", storeItem=" + storeItem.toString() + "]";
 	}
+
+
+
+	
 	
 	
 	

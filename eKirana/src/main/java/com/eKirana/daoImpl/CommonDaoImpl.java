@@ -10,13 +10,25 @@ import jakarta.persistence.EntityManager;
 @Repository
 public class CommonDaoImpl implements CommonDao
 {
-	private EntityManager entityManager;
+	public EntityManager entityManager;
 	
-	
-	@Autowired
-	public CommonDaoImpl(EntityManager entityManager) 
+	CommonDaoImpl()
 	{
+		
+	}
+	
+	
+	
+	@Autowired	
+	public void setEntityManager(EntityManager entityManager) {
 		this.entityManager = entityManager;
+	}
+	
+	
+
+
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 
 
@@ -26,4 +38,6 @@ public class CommonDaoImpl implements CommonDao
 	{
 		entityManager.persist(object);
 	}
+	
+	
 }

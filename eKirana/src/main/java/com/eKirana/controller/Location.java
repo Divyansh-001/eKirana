@@ -1,17 +1,33 @@
 package com.eKirana.controller;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.eKirana.entity.Seller;
+import com.eKirana.entity.Stores;
+import com.eKirana.service.LocationService;
+
 @RestController
-@RequestMapping(path = "/getLocation")
+@RequestMapping(path = "/eKirana/getLocation")
 public class Location 
 {
-	@GetMapping("/getLocationBasedData")
-	public String getLocationBasedData()
+	LocationService locationService;
+	
+	Location(LocationService locationService)
 	{
-		return "Sucess";
+		this.locationService = locationService;
+	}
+	
+	
+	@GetMapping("/getLocationBasedData")
+	public Map<String,List<Stores>> getLocationBasedData()
+	{
+		Map<String,List<Stores>> storeByLocation = locationService.getLocationBasedData();
+		return storeByLocation;
 	}
 	
 	@GetMapping("/getData")

@@ -2,6 +2,9 @@ package com.eKirana.entity;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -30,10 +33,13 @@ public class Seller
 	
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "address_id", referencedColumnName = "address_id")
+	@JsonIgnore
 	Address address;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "seller", cascade = CascadeType.ALL)
+	@JsonIgnore
 	Set<Stores> stores;
+	
 	
 
 	public Seller() 
@@ -103,6 +109,13 @@ public class Seller
 
 	public void setStores(Set<Stores> stores) {
 		this.stores = stores;
+	}
+
+	@Override
+	public String toString() {
+		return "Seller [sellerId=" + sellerId + ", firstName=" + firstName + ", lastName=" + lastName + ", password="
+				+ password + ", email=" + email + ", phoneNumber=" + phoneNumber + ", address=" + address.toString() + ", stores="
+				+ stores.toString() + "]";
 	}
 	
 	
